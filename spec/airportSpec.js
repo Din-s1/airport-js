@@ -5,8 +5,6 @@ describe("Airport", function () {
     airport = new Airport();
   });
 
-
-
   describe("#land", function() {
     // As an air traffic controller
     // So I can get passengers to a destination
@@ -31,7 +29,6 @@ describe("Airport", function () {
     });
   });
 
-
   describe("#takeOff", function() {
     // As an air traffic controller
     // So I can get passengers on the way to their destination
@@ -48,17 +45,18 @@ describe("Airport", function () {
     });
   });
 
+  describe("#capacity", function() {
+    // As the system designer
+    // So that the software can be used for many different airports
+    // I would like a default airport capacity that can be overridden as appropriate
+    it("it should have a default airport capacity equal to 1", function() {
+      expect(airport.capacity).toEqual(1)
+    });
 
+    it("the default capacity can be overridden", function() {
+      var airport = new Airport(2);
 
-
-
-
-
-  // As the system designer
-  // So that the software can be used for many different airports
-  // I would like a default airport capacity that can be overridden as appropriate
-
-
+      expect(airport.capacity).toEqual(2)
+    });
+  });
 });
-
-
