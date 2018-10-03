@@ -17,7 +17,8 @@ describe("Airport", function () {
     // To ensure safety
     // I want to prevent landing when weather is stormy
     it("should prevent a plane to land when weather is stormy", function() {
-      expect(airport.land("plane", "stormy")).toEqual('Too stormy to land')
+      // expect{airport.land("plane, stormy")}.toThrowError('Too stormy to land')
+      expect(function() { airport.land("plane", "stormy") } ).toThrowError('Too stormy to land')
     });
 
     // As an air traffic controller
@@ -25,7 +26,7 @@ describe("Airport", function () {
     // I want to prevent landing when the airport is full
     it("should prevent a plane from landing when the airport is full", function() {
       airport.land("plane");
-      expect(airport.land("plane")).toEqual('Airport Full');
+      expect(function() { airport.land("plane") } ).toThrowError('Airport Full');
     });
   });
 
@@ -41,7 +42,7 @@ describe("Airport", function () {
     // To ensure safety
     // I want to prevent takeoff when weather is stormy
     it("should prevent take off when weather is stormy", function() {
-      expect(airport.takeOff("plane", "stormy")).toEqual('Too stormy to take off')
+      expect(function() { airport.takeOff("plane", "stormy") } ).toThrowError('Too stormy to take off')
     });
   });
 

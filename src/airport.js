@@ -7,11 +7,11 @@ const DEFAULT_CAPACITY = 1; // TODO: Remove global constant
 
 Airport.prototype.land = function(plane, weather) {
   if (this._isStormy(weather)) {
-    return "Too stormy to land";
+    throw new Error("Too stormy to land");
   }
 
   if (this.hangar.length >= this.capacity) {
-    return "Airport Full";
+    throw new Error("Airport Full");
   } else {
     this.hangar.push(plane);
     return "landed";
@@ -20,7 +20,7 @@ Airport.prototype.land = function(plane, weather) {
 
 Airport.prototype.takeOff = function(plane, weather) {
   if (this._isStormy(weather)) {
-    return "Too stormy to take off";
+    throw new Error("Too stormy to take off");
   }
   return "taken off";
 };
