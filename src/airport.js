@@ -1,8 +1,9 @@
-const DEFAULT_CAPACITY = 1; // TODO: Remove global constant
+const DEFAULT_CAPACITY = 1;
 
-  function Airport(capacity = DEFAULT_CAPACITY) {
+function Airport(capacity = DEFAULT_CAPACITY, weather = new Weather()) {
     this.hangar = [];
     this.capacity = capacity;
+    this.weather = weather
 }
 
 Airport.prototype.land = function(plane, weather) {
@@ -22,7 +23,7 @@ Airport.prototype.takeOff = function(plane, weather) {
   if (this._isStormy(weather)) {
     throw new Error("Too stormy to take off");
   }
-  return "taken off";
+  return plane + " taken off";
 };
 
 Airport.prototype._isStormy = function(weather) {

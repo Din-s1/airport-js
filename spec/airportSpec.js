@@ -35,7 +35,7 @@ describe("Airport", function () {
     // So I can get passengers on the way to their destination
     // I want to instruct a plane to take off from an airport and confirm that it is no longer in the airport
     it("should allow a plane to take off from an airport", function() {
-      expect(airport.takeOff("plane")).toEqual('taken off')
+      expect(airport.takeOff("plane")).toEqual('plane taken off')
     });
 
     // As an air traffic controller

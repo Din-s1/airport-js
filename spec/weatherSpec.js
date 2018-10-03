@@ -1,17 +1,20 @@
-// describe("Weather", function() {
-//   var weather;
+describe("Weather", function() {
+  var weather;
 
-//   beforeEach(function() {
-//     weather = new Weather();
-//   });
+  beforeEach(function() {
+    weather = new Weather();
+  });
 
-//   // spyOn(weather, "isStormy").and.returnValue(9);
-//   spyOn(Math, "random");//.and.returnValue(9);
 
-//   describe("#isStormy", function() {
-//     it("should use Math.random", function() {
-//     expect(Math, "random").toHaveBeenCalled();
-//     weather.isStormy();
-//     });
-//   });
-// });
+  describe("#isStormy", function() {
+    it("should return true when Math.random is 9", function() {
+      spyOn(Math, "random").and.returnValue(0.9);
+      expect(weather.isStormy()).toEqual(true);
+    });
+
+    it("should return true when (Math.random * 10) is 1", function () {
+      spyOn(Math, "random").and.returnValue(0.1);
+      expect(weather.isStormy()).toEqual(false);
+    });
+  });
+});
